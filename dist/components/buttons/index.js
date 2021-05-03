@@ -3,45 +3,66 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SecondaryButton = exports.MenuButton = void 0;
+exports.Button = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _index = require("../colors/index");
+var _styledSystem = require("styled-system");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var BaseButton = _styledComponents.default.button.withConfig({
-  componentId: "sc-7yp5d5-0"
-})(["box-sizing:border-box;appearance:none;outline:none;border-radius:0.25rem;color:", ";width:", ";min-width:\"10rem\";margin:", ";font-size:", "rem;cursor:pointer;letter-spacing:1.2px;height:", ";"], function (_ref) {
-  var color = _ref.color;
-  return color ? color : null;
-}, function (_ref2) {
-  var fill = _ref2.fill,
-      width = _ref2.width;
-  return fill ? "100%" : width ? width : "10rem";
-}, function (_ref3) {
-  var margin = _ref3.margin;
-  return margin;
-}, function (_ref4) {
-  var fontSize = _ref4.fontSize;
-  return fontSize;
-}, function (_ref5) {
-  var height = _ref5.height;
-  return height ? height + "rem" : "3rem";
-});
+var customTransform = function customTransform(key, obj) {
+  return "".concat(obj[key], " 0rem");
+};
 
-var MenuButton = (0, _styledComponents.default)(BaseButton).withConfig({
-  componentId: "sc-7yp5d5-1"
-})(["padding:0.8rem;font-weight:600;letter-spacing:0.7px;border:none;background-color:", ";"], function (_ref6) {
-  var color = _ref6.color;
-  return color ? color : "#FFFFFF";
+var BaseButton = _styledComponents.default.button.withConfig({
+  componentId: "s53mse-0"
+})(["box-sizing:border-box;appearance:none;outline:none;min-width:10rem;border-radius:0.25rem;cursor:pointer;height:3rem;border:none;", ";", ";"], _styledSystem.typography, (0, _styledSystem.system)({
+  width: {
+    property: "width",
+    scale: "widths"
+  },
+  spacingTop: {
+    property: "marginTop",
+    scale: "paddings"
+  },
+  spacingBot: {
+    property: "marginBottom",
+    scale: "paddings"
+  },
+  spacingVertical: {
+    property: "margin",
+    scale: "paddings",
+    transform: customTransform
+  }
+}));
+
+var Button = (0, _styledComponents.default)(BaseButton).withConfig({
+  componentId: "s53mse-1"
+})(["font-weight:600;transition:0.6s;letter-spacing:0.7px;background-color:", ";border:", ";color:", ";:hover{background-color:", ";color:", ";}"], function (_ref) {
+  var color = _ref.color,
+      fill = _ref.fill,
+      theme = _ref.theme;
+  return color && fill ? theme.colors[color] : "rgba(0, 0, 0, 0)";
+}, function (_ref2) {
+  var color = _ref2.color,
+      fill = _ref2.fill,
+      theme = _ref2.theme;
+  return "2px solid ".concat(fill ? "none" : theme.colors[color]);
+}, function (_ref3) {
+  var color = _ref3.color,
+      fill = _ref3.fill,
+      theme = _ref3.theme;
+  return fill ? "white" : theme.colors[color];
+}, function (_ref4) {
+  var color = _ref4.color,
+      fill = _ref4.fill,
+      theme = _ref4.theme;
+  return !fill ? theme.colors[color] : undefined;
+}, function (_ref5) {
+  var color = _ref5.color,
+      fill = _ref5.fill,
+      theme = _ref5.theme;
+  return !fill ? "white" : undefined;
 });
-exports.MenuButton = MenuButton;
-var SecondaryButton = (0, _styledComponents.default)(BaseButton).withConfig({
-  componentId: "sc-7yp5d5-2"
-})(["padding:0.8rem;font-weight:600;letter-spacing:0.7px;background-color:rgba(0,0,0,0);border:", ";"], function (_ref7) {
-  var color = _ref7.color;
-  return "2px solid ".concat(color ? color : "rgba(0,0,0,0.5)");
-});
-exports.SecondaryButton = SecondaryButton;
+exports.Button = Button;

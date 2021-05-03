@@ -10,7 +10,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BaseInput = _styledComponents.default.input.withConfig({
-  componentId: "sc-15g9gpd-0"
+  componentId: "utr5f7-0"
 })(["box-sizing:border-box;appearance:none;border:none;"]);
 
 var TextInput = (0, _styledComponents.default)(BaseInput).attrs(function (props) {
@@ -18,7 +18,7 @@ var TextInput = (0, _styledComponents.default)(BaseInput).attrs(function (props)
     type: props.password ? "password" : "text"
   };
 }).withConfig({
-  componentId: "sc-15g9gpd-1"
+  componentId: "utr5f7-1"
 })(["padding:1rem 0.5rem;border:", ";margin:0.2rem 0;height:3rem;font-family:\"Roboto\",sans-serif;outline-color:#b3b3b3;font-weight:300;border-radius:0.2rem;width:", ";color:rgb(0,0,0);font-size:1rem;padding-left:0.8rem;"], function (_ref) {
   var error = _ref.error;
   return "1px solid ".concat(error ? "#f70049" : "#ddd");

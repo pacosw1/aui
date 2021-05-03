@@ -1,7 +1,8 @@
+import React from "react";
 import { ThemeProvider } from "styled-components";
-import { DefaultTheme } from "../theme";
+import { DefaultTheme } from "./theme";
 
-export const TestProvider = (props) => {
+export const AirUIProvider = (props) => {
   return (
     <ThemeProvider theme={DefaultTheme} props={props}>
       {props.children}

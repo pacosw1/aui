@@ -3,6 +3,8 @@ import { typography } from "styled-system";
 
 const BaseH1 = styled.h1`
   ${typography};
+  margin: 0rem;
+  padding: 0;
 `;
 
 export const Header = styled(BaseH1)`

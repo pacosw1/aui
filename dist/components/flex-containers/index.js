@@ -10,7 +10,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BaseFlexContainer = _styledComponents.default.div.withConfig({
-  componentId: "do4op1-0"
+  componentId: "sc-1j9lz8a-0"
 })(["display:flex;border:", ";border-top:", ";border-bottom:", ";border-left:", ";border-right:", ";border-radius:", ";background-color:", ";padding:", ";padding-top:", "rem;padding-bottom:", "rem;padding-left:", "rem;padding-right:", "rem;margin:", ";margin-top:", "rem;margin-bottom:", "rem;margin-left:", "rem;margin-right:", "rem;width:", ";"], function (_ref) {
   var border = _ref.border;
   return border;
@@ -69,7 +69,7 @@ var BaseFlexContainer = _styledComponents.default.div.withConfig({
 });
 
 var VerticalBox = (0, _styledComponents.default)(BaseFlexContainer).withConfig({
-  componentId: "do4op1-1"
+  componentId: "sc-1j9lz8a-1"
 })(["flex-direction:column;justify-content:", ";align-items:", ";"], function (_ref19) {
   var verticalSpacing = _ref19.verticalSpacing;
   return verticalSpacing;
@@ -79,7 +79,7 @@ var VerticalBox = (0, _styledComponents.default)(BaseFlexContainer).withConfig({
 });
 exports.VerticalBox = VerticalBox;
 var HorizontalBox = (0, _styledComponents.default)(BaseFlexContainer).withConfig({
-  componentId: "do4op1-2"
+  componentId: "sc-1j9lz8a-2"
 })(["justify-content:", ";align-items:", ";"], function (_ref21) {
   var horizontalSpacing = _ref21.horizontalSpacing;
   return horizontalSpacing;

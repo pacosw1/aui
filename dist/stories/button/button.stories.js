@@ -9,32 +9,23 @@ var _react = _interopRequireDefault(require("react"));
 
 var _buttons = require("../../components/buttons");
 
+var _typography = require("../../components/typography");
+
+var _defaultProvider = require("../defaultProvider");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
   title: "Example/Button",
-  component: _buttons.Button,
-  argTypes: {
-    color: {
-      control: "color"
-    }
-  }
+  component: _buttons.Button
 };
 exports.default = _default;
 
-var Template = function Template(args) {
-  return /*#__PURE__*/_react.default.createElement(_buttons.MenuButton, args, args.text);
+var ButtonTemplate = function ButtonTemplate(args) {
+  return /*#__PURE__*/_react.default.createElement(_defaultProvider.TestProvider, null, /*#__PURE__*/_react.default.createElement(_typography.Text, null, "Hello"), /*#__PURE__*/_react.default.createElement(_buttons.Button, args, args.text), /*#__PURE__*/_react.default.createElement(_typography.Text, null, "Hello"));
 };
 
-var MenuBtnTemplate = function MenuBtnTemplate(args) {
-  return /*#__PURE__*/_react.default.createElement(_buttons.MenuButton, args, args.text);
-};
-
-var SecondaryMenuBtn = function SecondaryMenuBtn(args) {
-  return /*#__PURE__*/_react.default.createElement(_buttons.SecondaryButton, args, args.text);
-};
-
-var Primary = MenuBtnTemplate.bind({});
+var Primary = ButtonTemplate.bind({});
 exports.Primary = Primary;
 Primary.args = {
   text: "Hello World",
@@ -42,12 +33,17 @@ Primary.args = {
   fill: false,
   label: "Button"
 };
-var Secondary = SecondaryMenuBtn.bind({});
+var Secondary = ButtonTemplate.bind({});
 exports.Secondary = Secondary;
 Secondary.args = {
+  color: "primary",
   text: "Hello World",
   height: 3,
-  fill: false
+  fill: true,
+  width: "small",
+  spacingTop: "medium",
+  spacingBot: "small",
+  spacingVertical: "small"
 }; // export const Large = Template.bind({});
 // Large.args = {
 //   size: 'large',
