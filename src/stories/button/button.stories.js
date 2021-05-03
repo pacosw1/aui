@@ -1,38 +1,39 @@
 import React from "react";
-import { Button, MenuButton, SecondaryButton } from "../../components/buttons";
+import { Button } from "../../components/buttons";
+import { Header, Text } from "../../components/typography";
+import { TestProvider } from "../defaultProvider";
 
 export default {
   title: "Example/Button",
   component: Button,
-  argTypes: {
-    color: { control: "color" },
-  },
 };
 
-const Template = (args) => <MenuButton {...args}>{args.text}</MenuButton>;
-const MenuBtnTemplate = (args) => (
-  <MenuButton {...args}>{args.text}</MenuButton>
+const ButtonTemplate = (args) => (
+  <TestProvider>
+    <Text>Hello</Text>
+    <Button {...args}>{args.text}</Button>
+    <Text>Hello</Text>
+  </TestProvider>
 );
 
-const SecondaryMenuBtn = (args) => (
-  <SecondaryButton {...args}>{args.text}</SecondaryButton>
-);
-
-export const Primary = MenuBtnTemplate.bind({});
+export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   text: "Hello World",
   height: 3,
-
   fill: false,
   label: "Button",
 };
 
-export const Secondary = SecondaryMenuBtn.bind({});
+export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
+  color: "primary",
   text: "Hello World",
   height: 3,
-
-  fill: false,
+  fill: true,
+  width: "small",
+  spacingTop: "medium",
+  spacingBot: "small",
+  spacingVertical: "small",
 };
 
 // export const Large = Template.bind({});

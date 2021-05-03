@@ -1,50 +1,55 @@
 import styled from "styled-components";
-import { menu, primary as prim, secondary } from "../colors/index";
+import { system, typography } from "styled-system";
+
+const customTransform = (key, obj) => {
+  return `${obj[key]} 0rem`;
+};
 
 const BaseButton = styled.button`
   box-sizing: border-box;
   appearance: none;
   outline: none;
+  min-width: 10rem;
   border-radius: 0.25rem;
-  color: ${({ color }) => (color ? color : null)};
-
-  width: ${({ fill, width }) => (fill ? "100%" : width ? width : "10rem")};
-  min-width: "10rem";
-
-  margin: ${({ margin }) => margin};
-  font-size: ${({ fontSize }) => fontSize}rem;
-
   cursor: pointer;
-
-  letter-spacing: 1.2px;
-
-  /* :focus {
-    border-width: 1.2px;
-  } */
-
-  height: ${({ height }) => (height ? height + "rem" : "3rem")};
-
-  /* :hover {
-    filter: brightness(0.98);
-    background-color: ${({ invert, bColor }) => (invert ? bColor : null)};
-    color: ${({ invert, invertTextColor }) =>
-    invert ? invertTextColor : null};
-  } */
-`;
-
-export const MenuButton = styled(BaseButton)`
-  padding: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.7px;
+  height: 3rem;
   border: none;
 
-  background-color: ${({ color }) => (color ? color : "#FFFFFF")};
+  ${typography};
+  ${system({
+    width: {
+      property: "width",
+      scale: "widths",
+    },
+    spacingTop: {
+      property: "marginTop",
+      scale: "paddings",
+    },
+    spacingBot: {
+      property: "marginBottom",
+      scale: "paddings",
+    },
+    spacingVertical: {
+      property: "margin",
+      scale: "paddings",
+      transform: customTransform,
+    },
+  })};
 `;
 
-export const SecondaryButton = styled(BaseButton)`
-  padding: 0.8rem;
+export const Button = styled(BaseButton)`
   font-weight: 600;
+  transition: 0.6s;
   letter-spacing: 0.7px;
-  background-color: rgba(0, 0, 0, 0);
-  border: ${({ color }) => `2px solid ${color ? color : "rgba(0,0,0,0.5)"}`};
+  background-color: ${({ color, fill, theme }) =>
+    color && fill ? theme.colors[color] : "rgba(0, 0, 0, 0)"};
+  border: ${({ color, fill, theme }) =>
+    `2px solid ${fill ? "none" : theme.colors[color]}`};
+  color: ${({ color, fill, theme }) => (fill ? "white" : theme.colors[color])};
+
+  :hover {
+    background-color: ${({ color, fill, theme }) =>
+      !fill ? theme.colors[color] : undefined};
+    color: ${({ color, fill, theme }) => (!fill ? "white" : undefined)};
+  }
 `;
