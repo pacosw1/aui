@@ -1,6 +1,6 @@
 {
   "name": "@pacosw/aui",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "private": false,
   "dependencies": {
     "styled-components": "^5.2.3",
